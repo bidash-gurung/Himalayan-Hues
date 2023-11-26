@@ -4,7 +4,7 @@ const login = async (email, password, role) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://localhost:4000/api/v1/users/login',
+            url: 'https://group4himalayanhues.onrender.com/api/v1/users/login',
             data: {
                 email,
                 password,
