@@ -66,10 +66,7 @@ const login = async (email, password, role) => {
            
         // }
     } catch (err) {
-        let message = 
-            typeof err.response !== 'undefined'
-            ? err.response.data.message
-            :err.message
+        
         showAlert('error', 'Error: Incorrect email or password', message)
     }
 }
