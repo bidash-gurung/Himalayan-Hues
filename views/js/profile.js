@@ -5,7 +5,7 @@ window.getUser = async function (id) {
  
         const res = await axios({
             method: 'GET',
-            url: `http://localhost:4000/api/v1/users/${id}`,
+            url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
         });
 
         if (res.data.status === 'success') {
@@ -36,7 +36,7 @@ window.updateEmail = async function (name, email, id) {
  
         const res = await axios({
             method: 'PATCH',
-            url: `http://localhost:4000/api/v1/users/${id}`,
+            url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
             data: {
                 name,
                 email
@@ -77,7 +77,7 @@ window.updatePass = async function (password,passwordConfirm) {
  
         const res = await axios({
             method: 'PATCH',
-            url: `http://localhost:4000/api/v1/users/${id}`,
+            url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
             data: {
                 password,
                 passwordConfirm

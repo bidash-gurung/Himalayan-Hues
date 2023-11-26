@@ -4,7 +4,7 @@ const productdetails = async (id) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/products/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
       });
        
       payment(res.data.data)
@@ -57,7 +57,7 @@ const username = async (id) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/users/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
       });
        
       displayuserinfo(res.data.data)
@@ -96,7 +96,7 @@ window.orderitem = async function (){
 
 window.addtoOrder = async function(product_name, total_amount, total_qty, buyer, journal, phoneNo, address,seller_id) {
     try {
-        const res = await axios.post('http://localhost:4000/api/v1/order', {
+        const res = await axios.post('https://group4himalayanhues.onrender.com/api/v1/order', {
             product_name,
             total_amount,
             total_qty,

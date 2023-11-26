@@ -106,7 +106,7 @@
     // console.log("inside try")
     const res = await axios({
       method: 'GET',
-      url: `http://localhost:4000/api/v1/products/${id}`,
+      url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
     })
  
     console.log(res.data.data.user)
@@ -123,7 +123,7 @@ async function getUserInfo(data){
         // console.log("inside try")
         const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/users/${data.user}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/users/${data.user}`,
     })
     // console.log(data)
     // console.log(res.data.data)
@@ -176,7 +176,7 @@ function open(){
     // console.log("inside try")
     const res = await axios({
       method: 'GET',
-      url: `http://localhost:4000/api/v1/products/${id}`,
+      url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
     })
  
     console.log(res.data.data)
@@ -200,7 +200,7 @@ async function getSingleProductInfo(id,user) {
     // console.log("inside try")
     const res = await axios({
       method: 'GET',
-      url: `http://localhost:4000/api/v1/products/${id}`,
+      url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
     })
  
     console.log(res.data.data)

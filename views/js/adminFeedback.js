@@ -5,7 +5,7 @@ const getFeed= async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/feedback',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/feedback',
       });
        
       displayFeed(res.data.data)
@@ -18,7 +18,7 @@ const deleteFeedback= async (id) => {
     try {
       const res = await axios({
         method: 'DELETE',
-        url: `http://localhost:4000/api/v1/feedback/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/feedback/${id}`,
       });
        
       if(res.data.status == "success"){
@@ -38,7 +38,7 @@ const getUser = async (id, data,sl) => {
     try {
       const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/users/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
       });
        if(res.data.status=="success"){
         displayAllFeedback(res.data.data, data,sl)

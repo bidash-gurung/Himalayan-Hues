@@ -5,7 +5,7 @@ const createProduct = async (data) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://localhost:4000/api/v1/products',
+            url: 'https://group4himalayanhues.onrender.com/api/v1/products',
             data
         });
 

@@ -4,7 +4,7 @@ window.getCartDetails = async function(id,useridd){
     try {
       const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/products/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
       });
 
        

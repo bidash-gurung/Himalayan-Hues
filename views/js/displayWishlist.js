@@ -5,7 +5,7 @@ const showWishlist = async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/wishlist',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/wishlist',
       });
        
       displayCart(res.data.data)
@@ -124,7 +124,7 @@ window.deleteCart = async function (id){
   try {
     const res = await axios({
       method: 'DELETE',
-      url: `http://localhost:4000/api/v1/cart/${id}`,
+      url: `https://group4himalayanhues.onrender.com/api/v1/cart/${id}`,
     });
 
      if(res.data.data = "success"){
@@ -146,7 +146,7 @@ window.addtoCart = async function(product_name,price,product_id,user_id,user){
     try{
          const res = await axios({
             method: 'POST',
-            url : `http://localhost:4000/api/v1/cart`,
+            url : `https://group4himalayanhues.onrender.com/api/v1/cart`,
             data: {
                 product_name,
                 price,
@@ -169,7 +169,7 @@ window.check = async function(data,user){
     try{
           const res = await axios({
             method: 'GET',
-            url : `http://localhost:4000/api/v1/cart`,
+            url : `https://group4himalayanhues.onrender.com/api/v1/cart`,
             
         })
  

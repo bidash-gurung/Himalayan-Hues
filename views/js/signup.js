@@ -4,7 +4,7 @@ export const signup = async (name, email,role, phoneNo, password, passwordConfir
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://localhost:4000/api/v1/users/signup',
+      url: 'https://group4himalayanhues.onrender.com/api/v1/users/signup',
       data: {
         name,
         email,

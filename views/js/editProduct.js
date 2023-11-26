@@ -4,7 +4,7 @@ async function moreInfo(id) {
     try { 
        const res = await axios({
         method: 'GET',
-        url: `http://localhost:4000/api/v1/products/${id}`,
+        url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
       })
    
     
@@ -48,7 +48,7 @@ const updateProduct = async (product_name,description,price,quantity,bank,accoun
     try {
         const res = await axios({
             method: 'PUT',
-            url: `http://localhost:4000/api/v1/products/${id}`,
+            url: `https://group4himalayanhues.onrender.com/api/v1/products/${id}`,
             data:{
                 product_name,
                 description,

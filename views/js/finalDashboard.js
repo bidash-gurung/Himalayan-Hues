@@ -5,7 +5,7 @@ const showUser = async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/users',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/users',
       });
        
       displayUser(res.data.data)
@@ -19,7 +19,7 @@ const getProd = async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/products',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/products',
       });
        
       displayProd(res.data.data)
@@ -32,7 +32,7 @@ const getProd = async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/feedback',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/feedback',
       });
        
       displayFeed(res.data.data)
@@ -91,7 +91,7 @@ window.removeUser = async function (id){
     try {
         const res = await axios({
           method: 'DELETE',
-          url: `http://localhost:4000/api/v1/users/${id}`,
+          url: `https://group4himalayanhues.onrender.com/api/v1/users/${id}`,
         });
          
         if(res.data.status == "success"){

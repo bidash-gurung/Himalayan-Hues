@@ -5,7 +5,7 @@ const showOrder = async () => {
     try {
       const res = await axios({
         method: 'GET',
-        url: 'http://localhost:4000/api/v1/order',
+        url: 'https://group4himalayanhues.onrender.com/api/v1/order',
       });
        
        displayOrder(res.data.data)

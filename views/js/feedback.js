@@ -16,7 +16,7 @@ window.uploadFeedback = async function(feedback,user_id){
     try{
          const res = await axios({
             method: 'POST',
-            url : `http://localhost:4000/api/v1/feedback`,
+            url : `https://group4himalayanhues.onrender.com/api/v1/feedback`,
             data: {
                 feedback,
                 user_id,

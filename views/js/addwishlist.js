@@ -5,7 +5,7 @@ window.addtoWishlist = async function(product_name,price,product_id,user_id,user
         console.log(product_name,price,product_id,user_id)
         const res = await axios({
             method: 'POST',
-            url : `http://localhost:4000/api/v1/wishlist`,
+            url : `https://group4himalayanhues.onrender.com/api/v1/wishlist`,
             data: {
                 product_name,
                 price,
@@ -28,7 +28,7 @@ window.checkWishlist = async function(data,user){
     try{
           const res = await axios({
             method: 'GET',
-            url : `http://localhost:4000/api/v1/wishlist`,
+            url : `https://group4himalayanhues.onrender.com/api/v1/wishlist`,
             
         })
  
