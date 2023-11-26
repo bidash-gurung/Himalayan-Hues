@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/sellerhome.css">
+    <link rel="stylesheet" href="./css/alert.css">
+    <title>Document</title>
+    <style>
+      
+      .fixed-icon {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 54px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+      }
+      .fixed-icon a{
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        position: relative;
+        top: 7px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="#"><img src="image/logo.png" alt="Logo"></a>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
+        <ul>
+            <li class="text-option"><a href="./notify.html">Notification</a></li>
+             <li class="text-option"><a href="./profile.html">Profile</a></li>
+             <li class="text-option"><a href="#" onclick="logout()">LogOut</a></li>
+
+
+            <li class="icon-option"><a href="#home"><i class="fas fa-bell" title="Notification"></i></a></li>
+            <li class="icon-option"><a href="#news"><i class="fas fa-user" title="Profile"></i></a></li>
+            <li class="icon-option"><a href="#contact"><i class="fas fa-sign-out-alt" title="Logout"></i></a></li>
+        </ul>
+    </div>
+    <div class="coverphoto">
+        <div class="image-slider">   
+        </div>
+        <div class="text-overlay">
+            <span class="enlarged-letters">"T</span><span>raditional dress and Handicrafts:</span>
+            <span class="lavishly-yours-text">Threads of heritage, woven with artistry."</span>
+            <div class="green-line"></div> <!-- Green line below the text and image --> <br>
+        </div>
+    </div>
+    <h1 style="color: white;">Your Products.</h1>
+
+    <div class="fixed-icon"><a href="./addProduct.html" title="add new product">+</a></div>
+
+    <!-- Start of card -->
+    <div class="products" id="prod">
+        <!-- First row of products -->
+       
+    </div>
+
+    <div class="moreinfo">
+        <div class="preview active "  > 
+            <i class="fas fa-times" id="cross"></i>
+            <div class="information">
+                <img class="morPhoto" src="" alt="Product Images">
+                <p>Product Name: <span class="jt"></span></p>
+                <p>Product Price: <span class="jc"></span></p>
+                <p>Product Description: <span class="jd"></span></p>
+                <p>Available Quantity: <span class="ar"></span></p>
+                <p>Advertised By: <span class="posted"></span></p>
+                <p>Contact No: <span class="cont"></span></p>
+               
+            
+            </div>
+          </div>
+    </div>
+
+    
+    <footer>
+        <hr>
+        <div class="footer">
+            <div class="vl"></div>
+            <!-- Create the contact information -->
+            <div class="contact">
+                <h3>Contacts & Address</h3>
+                <span>Gyalpozhing College of Information Technology</span><br>
+                <span>Kabiisa, Thimphu</span><br>
+                <span>HimalayanHues07@gmail.com</span>
+            </div>
+            <!-- Create the feedback form -->
+            <div class="form">
+                <h3>Feedback Section</h3>
+                <input type="text" class="input" id="feed" placeholder="Write your feedback here...">
+                <button type="submit" class="button" onclick="giveFeedback()">Submit</button>
+              </div>
+        </div>
+    </footer>
+    
+         
+        
+</body>
+
+<script>
+    var icon = document.getElementById("cross");
+    icon.addEventListener("click", close);
+
+    function close(){
+        console.log("close executed")
+        let previewContainer = document.querySelector(".moreinfo");
+        let previewBox = previewContainer.querySelector('.preview');
+        previewContainer.style.display = 'none';
+    };
+
+
+
+</script>
+<script defer>
+    async function moreInfo(id) {
+  try { 
+    // console.log("inside try")
+    const res = await axios({
+      method: 'GET',
+      url: `http://localhost:4000/api/v1/products/${id}`,
+    })
+ 
+    console.log(res.data.data.user)
+    getUserInfo(res.data.data)
+    
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+async function getUserInfo(data){
+    try{
+        // console.log("inside try")
+        const res = await axios({
+        method: 'GET',
+        url: `http://localhost:4000/api/v1/users/${data.user}`,
+    })
+    // console.log(data)
+    // console.log(res.data.data)
+    open()
+    displayProduct(data,res.data.data)
+
+    }
+    
+    catch(err){
+        console.log(err)
+    }
+}
+
+
+function displayProduct(prodInfo,userInfo){
+    console.log(prodInfo)
+    console.log(userInfo)
+    var c0 = document.querySelector('.information img.morPhoto')
+    var c1 = document.querySelector('.information span.jt')
+    var c2 = document.querySelector('.information span.jc')
+    var c3 = document.querySelector('.information span.jd')
+    var c4 = document.querySelector('.information span.ar')
+    var c5 = document.querySelector('.information span.posted')
+    var c6 = document.querySelector('.information span.cont')
+
+    c0.innerHTML = " "+ prodInfo.photo
+    c1.innerHTML = " "+ prodInfo.product_name
+    c2.innerHTML = " "+ prodInfo.description
+    c3.innerHTML = " "+ prodInfo.price
+    c4.innerHTML = " "+ prodInfo.quantity
+    c5.innerHTML = " "+ userInfo.name
+    c6.innerHTML = " "+ userInfo.phoneNo
+
+    c0.src = `./image/product/${prodInfo.photo}`;
+
+}
+
+
+ 
+async function deleteProduct(iddd) {
+  try { 
+    const res = await axios({
+      method: 'DELETE',
+      url: `http://localhost:4000/api/v1/products/${iddd}`,
+    })
+    console.log("delete executed",res.data.status)
+    if(res.data.status === 'success'){
+      alert("You have successfully deleted the product.!")
+      window.location.href = "sellerhome.html"
+    }
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+function deleteProd(idd){
+  var del = window.confirm("Do you really want to delete this advertsiment?")
+  if(del){
+    deleteProduct(idd)
+  }else{
+    
+  }
+}
+
+
+window.editProd = async function(id){
+ 
+  localStorage.setItem('userID',id)
+
+  window.location.href = 'editProduct.html';
+
+
+}
+
+
+
+function open(){
+  
+  let previewContainer1 = document.querySelector(".moreinfo");
+  previewContainer1.style.display = 'flex';
+  
+}
+
+</script>
+
+ 
+<script type="module" src="./js/allproduct.js"></script>
+<script type="module" src="./js/logout.js"></script>
+<script type="module"  src="./js/feedback.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neuton:400,400i">
+
+    <link rel="stylesheet" href="css/addproduct.css">
+    <link rel="stylesheet" href="./css/alert.css">
+
+    <title>Add Product</title>
+</head>
+<body>
+    <div class="navigation">
+        <a href="#"><img src="image/logo.png" alt="Logo"></a>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search">
+            <i class="fas fa-search"></i>
+        </div>
+        <ul>
+            <li class="text-option"><a href="./notify.html">Notification</a></li>
+            <li class="text-option"><a href="./profile.html">Profile</a></li>
+            <li class="text-option"><a href="#" onclick="logout()">LogOut</a></li>
+
+            <li class="icon-option"><a href="#home"><i class="fas fa-bell" title="Notification"></i></a></li>
+            <li class="icon-option"><a href="#news"><i class="fas fa-user" title="Profile"></i></a></li>
+            <li class="icon-option"><a href="#contact"><i class="fas fa-sign-out-alt" title="Logout"></i></a></li>
+        </ul>
+    </div>
+    <div class="coverphoto">
+        <div class="image-slider">
+        </div>
+        <div class="text-overlay">
+            <span class="enlarged-letters">"T</span><span>raditional dress and Handicrafts:</span>
+            <span class="lavishly-yours-text">Threads of heritage, woven with artistry."</span>
+            <div class="green-line"></div> <!-- Green line below the text and image --> <br>
+
+        </div>
+    </div>
+
+    <h1 class="heading">
+        Add Product to Catalog
+    </h1>
+
+    <div class="addform">
+        <h2>Add Items</h2>
+        <div class="line"></div><br>
+        <form enctype="multipart/form-data">
+            <!-- Display the selected image with a default image -->
+            <img id="imageDisplay" src="image/lock.jpg" alt="Selected Image">
+
+            <!-- Label for the file input -->
+            <label for="productImage" id="imageUploadLabel">Upload Product Image</label>
+
+            <!-- Input for selecting an image -->
+            <input id="productImage" type="file" accept="image/*" name="photo" onchange="displaySelectedImage()" >
+
+            <div class="details">
+
+                <div class="detail_container">
+                    <label for="product_name">Product Name</label><br>
+                    <input id="product_name" type="text" placeholder="Enter Product Name" required>
+                </div>
+
+                <div class="detail_container">
+                    <label for="product_desc">Product Description</label><br>
+                    <input id="product_description" type="text" placeholder="Enter Product description..." required>
+                </div>
+
+                <div class="detail_container">
+                    <label for="product_qty">Quantity</label><br>
+                    <input id="quantity" type="number" placeholder="Enter total quantity" required>
+                </div>
+
+                <div class="detail_container">
+                    <label for="price">Selling Price (Per Quantity)</label><br>
+                    <input id="price" type="number" placeholder="Enter Selling Price" required>
+                </div>
+
+                <div class="detail_container">
+                    <label for="bank">Select a Bank</label><br>
+                    <select id="bank" name="bank" required>
+                        <option value="Bank of Bhutan">Bank of Bhutan</option>
+                        <option value="Bhutan National Bank">Bhutan National Bank</option>
+                        <option value="PNB">Druk PNB</option>
+                        <option value="Digital Kidu">Digital Kidu</option>
+                    </select>
+                </div>
+
+                <div class="detail_container">
+                    <label for="acc_num">Account Number</label><br>
+                    <input id="account_number" type="number" placeholder="Enter Your Account Number" required>
+                </div>
+
+                <div class="button_button">
+                    <button class="reset_btn">Reset</button>
+                    <button class="add_btn" id="submittheFormDetals">Add Item</button>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+</body><br><br><br>
+
+<footer>
+    <hr>
+    <div class="footer">
+        <div class="vl"></div>
+
+        <!-- Create the contact information -->
+        <div class="contact">
+            <h3>Contacts & Address</h3>
+            <Span>Gyalpozhing College of Information Technology</Span><br>
+            <span>Kabiisa, Thimphu</span><br>
+            <span>HimalayanHues07@gmail.com</span>
+        </div>
+
+        <!-- Create the feedback form -->
+        <div class="form">
+            <h3>Feedback Section</h3>
+            <input type="text" class="input" id="feed" placeholder="Write your feedback here...">
+            <button type="submit" class="button" onclick="giveFeedback()">Submit</button>
+        </div>
+
+    </div>
+</footer>
+<script>
+    function displaySelectedImage() {
+    const imageInput = document.getElementById('productImage');
+    const imageDisplay = document.getElementById('imageDisplay');
+
+    if (imageInput.files && imageInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            imageDisplay.src = e.target.result;
+        };
+
+        reader.readAsDataURL(imageInput.files[0]);
+    }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script type="module" src="./js/product.js"></script>
+<script type="module" src="./js/logout.js"></script>
+<script type="module"  src="./js/feedback.js"></script>
+
+
+
+</html>

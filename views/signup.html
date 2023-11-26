@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/signup.css">
+    <link rel="stylesheet" href="./css/alert.css">
+
+    <title>Sign Up</title>
+</head>
+<body>
+<img src="./image/signup_photo.png" alt="">
+    <div class="signupform">
+        <h2>Create an Account.</h2>
+        <h3>Provide your details.</h3>
+        <form class="form" id="registrationForm" action="/signup" method="POST">
+            <div class="input-container">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+                <span class="error" id="name-error"></span> <!-- Error message for name -->
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                <span class="error" id="email-error"></span> <!-- Error message for email -->
+            </div>
+
+            <div class="input-container">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your Phone Number" pattern="[0-9]+" required>
+                <span class="error" id="phone-error"></span> <!-- Error message for phone -->
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                <span class="password-toggle" onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></span>
+                <span class="error" id="password-error"></span> <!-- Error message for password -->
+            </div>
+
+            <div class="input-container">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your Password" required>
+                <span class="confirm-password-toggle" onclick="toggleConfirmPasswordVisibility()"><i class="fa fa-eye"></i></span>
+                <span class="error" id="confirm-password-error"></span> <!-- Error message for confirm password -->
+            </div>
+
+            <!-- Add circle radio buttons for roles -->
+            <div class="role-container">
+                <div class="radio-label">
+                    <input type="radio" id="seller" name="role" value="seller" required>
+                    <label for="seller">Seller</label>
+                </div>
+
+                <div class="radio-label">
+                    <input type="radio" id="buyer" name="role" value="buyer" required>
+                    <label for="buyer">Buyer</label>
+                </div>
+            </div>
+
+            <button type="submit">Sign Up</button>
+
+            <p>Already a member? <a href="login.html" style="text-decoration: none; color: #ff0fff;">Sign In</a></p>
+        </form>
+    </div>
+    
+   
+</body>
+<script>
+    // Add event listeners to input elements
+    const inputElements = document.querySelectorAll('input');
+
+    inputElements.forEach(inputElement => {
+        inputElement.addEventListener('focus', () => {
+            inputElement.parentNode.querySelector('label').classList.add('active');
+        });
+
+        inputElement.addEventListener('blur', () => {
+            if (inputElement.value === '') {
+                inputElement.parentNode.querySelector('label').classList.remove('active');
+            }
+        });
+    });
+
+
+    // JavaScript function to toggle password visibility
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.querySelector('.password-toggle i');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            passwordToggle.classList.remove('fa-eye');
+            passwordToggle.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            passwordToggle.classList.remove('fa-eye-slash');
+            passwordToggle.classList.add('fa-eye');
+        }
+    }
+
+    function toggleConfirmPasswordVisibility() {
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        const confirmPasswordToggle = document.querySelector('.confirm-password-toggle i');
+
+        if (confirmPasswordInput.type === 'password') {
+            confirmPasswordInput.type = 'text';
+            confirmPasswordToggle.classList.remove('fa-eye');
+            confirmPasswordToggle.classList.add('fa-eye-slash');
+        } else {
+            confirmPasswordInput.type = 'password';
+            confirmPasswordToggle.classList.remove('fa-eye-slash');
+            confirmPasswordToggle.classList.add('fa-eye');
+        }
+    }
+
+ 
+
+</script>
+<script>
+       document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            // Clear previous error messages
+            clearErrors();
+
+            // Name validation
+            const nameRegex = /^[A-Za-z\s]+$/;
+                if (!nameRegex.test(name)) {
+                showError('name-error', 'Name must contain only alphabets.');
+                event.preventDefault();
+                return;
+            }
+
+            // Email validation (you can add more complex email validation here)
+            if (!isValidEmail(email)) {
+                showError('email-error', 'Invalid email format.');
+                event.preventDefault();
+                return;
+            }
+
+            // Phone number validation
+            if (!(phone.length === 8 && (phone.startsWith('17') || phone.startsWith('77')))) {
+                showError('phone-error', 'Phone number must start with 17 or 77 and have a length of 8 digits.');
+                event.preventDefault();
+                return;
+            }
+
+            // Password complexity validation
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(password)) {
+                showError('password-error', 'Password must be complex: at least \n8 characters, including uppercase,\nlowercase, numbers, and special characters.');
+                event.preventDefault();
+                return;
+            }
+
+            // Confirm password matching
+            if (password !== confirmPassword) {
+                showError('confirm-password-error', 'Passwords do not match.');
+                event.preventDefault();
+                return;
+            }
+        });
+
+        function showError(id, message) {
+            const errorSpan = document.getElementById(id);
+            errorSpan.textContent = message;
+            errorSpan.style.color = 'red';
+        }
+
+        function clearErrors() {
+            const errorSpans = document.querySelectorAll('.error');
+            errorSpans.forEach(span => {
+                span.textContent = '';
+            });
+        }
+
+        function isValidEmail(email) {
+            // A simple email format check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+</script>
+<script type="module" src="./js/signup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+</html>

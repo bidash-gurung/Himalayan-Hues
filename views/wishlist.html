@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/alert.css">
+    <!-- <link rel="stylesheet" href="./js/search.js"> -->
+    <title>CART</title>
+</head>
+<body>
+    <div class="navigation">
+        <a href="./buyerhome.html"><img src="/image/logo.png" alt="Logo"></a>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search">
+            <i class="fas fa-search"></i>
+            <div id="results"></div>
+
+        </div>
+        <ul>
+            <li class="text-option"><a href="./cart.html">Cart</a></li>
+            <li class="text-option"><a href="./wishlist.html">Wishlist</a></li>
+
+            <li class="text-option"><a href="./profile.html">Profile</a></li>
+            <li class="text-option"><a href="#" onclick="logout()">LogOut</a></li>
+
+            <li class="icon-option"><a href="#home"><i class="fas fa-bell" title="Notification"></i></a></li>
+            <li class="icon-option"><a href="#news"><i class="fas fa-user" title="Profile"></i></a></li>
+            <li class="icon-option"><a href="#contact"><i class="fas fa-sign-out-alt" title="Logout"></i></a></li>
+          </ul>
+    </div>
+    <div class="coverphoto">
+        <div class="image-slider">   
+        </div>
+        <div class="text-overlay">
+            <span class="enlarged-letters">"T</span><span>raditional dress and Handicrafts:</span>
+            <span class="lavishly-yours-text">Threads of heritage, woven with artistry."</span>
+            <div class="green-line"></div> <!-- Green line below the text and image --> <br>
+
+        </div>
+    </div>
+    <h1>Your Wishlist</h1>
+    <div class="table">
+
+    </div><br><br><br>
+
+   
+
+</body>
+
+<footer>
+    <hr>
+    <div class="footer">
+        <div class="vl"></div>
+
+        <!-- Create the contact information -->
+        <div class="contact">
+            <h3>Contacts & Address</h3>
+            <Span>Gyalpozhing College of Information Technology</Span><br>
+            <span>Kabiisa, Thimphu</span><br>
+            <span>HimalayanHues07@gmail.com</span>
+        </div>
+
+        <!-- Create the feedback form -->
+        <div class="form">
+            <h3>Feedback Section</h3>
+            <input type="text" class="input" id="feed" placeholder="Write your feedback here...">
+            <button type="submit" class="button" onclick="giveFeedback()">Submit</button>
+        </div>
+      
+    </div>
+</footer>
+
+<script>
+       async function getSingleProductInformation(id,user) {
+  try { 
+    // console.log("inside try")
+    const res = await axios({
+      method: 'GET',
+      url: `http://localhost:4000/api/v1/products/${id}`,
+    })
+ 
+    console.log(res.data.data)
+   
+    check(res.data.data,user)
+    
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+function addCart(id,user){
+    // console.log("inside function")
+    getSingleProductInformation(id,user)
+}
+</script>
+<!-- 
+<script>
+    const tableContainer = document.querySelector('.table');
+    const totalPaymentElement = document.getElementById('total-payment');
+
+    tableContainer.addEventListener('click', function (event) {
+        const target = event.target;
+        if (target.classList.contains('quantity-control')) {
+            event.preventDefault();
+
+            const row = target.closest('.tablebody');
+            const priceElement = row.querySelector('.price');
+            const displayQuantityElement = row.querySelector('.display-quantity');
+            const totalElement = row.querySelector('.total');
+
+            const action = target.getAttribute('data-action');
+            let quantity = parseInt(displayQuantityElement.textContent);
+            const price = parseInt(priceElement.textContent);
+
+            if (action === 'increase') {
+                quantity++;
+            } else if (action === 'decrease' && quantity > 0) {
+                quantity--; // Ensure quantity does not go below 0
+            }
+
+            displayQuantityElement.textContent = quantity;
+            const total = quantity * price;
+            totalElement.textContent = total;
+
+            const totalPrices = document.querySelectorAll('.total');
+            let totalPayment = 0;
+
+            totalPrices.forEach(priceElement => {
+                totalPayment += parseInt(priceElement.textContent);
+            });
+
+            totalPaymentElement.textContent = totalPayment;
+        }
+    });
+</script> -->
+
+<script type="module" src="./js/displayWishlist.js"></script>
+<script type="module" src="./js/search.js"></script>
+<script type="module" src="./js/logout.js"></script>
+<script type="module"  src="./js/feedback.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+</html>

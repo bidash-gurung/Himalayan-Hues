@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/alert.css">
+    <title>Login</title>
+</head>
+<body>
+    <img src="./image/login_photo.png" alt="">
+    <div class="loginform">
+        <h2>Welcome Back</h2>
+        <h3>Crafting Culture, Crafting Connection.</h3>
+        <form class="form" action="/login"   onsubmit="return validateForm()">
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                <span class="error" id="email-error"></span> <!-- Error message for email -->
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                <span class="error" id="password-error"></span> <!-- Error message for password -->
+                <span class="password-toggle" onclick="togglePasswordVisibility()"><i class="fa fa-eye"></i></span>
+            </div>
+            <!-- Add circle checkboxes for roles -->
+            <div class="role-container" id="role">
+                <div class="radio-label">
+                    <input type="radio" id="seller" name="role" value="seller" required>
+                    <label for="seller">Seller</label>
+                </div>
+
+                <div class="radio-label">
+                    <input type="radio" id="buyer" name="role" value="buyer" required>
+                    <label for="buyer">Buyer</label>
+                </div>
+
+                <div class="radio-label">
+                    <input type="radio" id="admin" name="role" value="admin" required>
+                    <label for="admin">Admin</label>
+                </div>
+            </div>
+
+            <button type="submit">Log In</button>
+
+            <p>Account Not Created Yet? <a href="signup.html" style="text-decoration: none; color: #ff0fff;">Create new Account</a></p>
+            <a href="landing.html" style="text-decoration: none; color: #ff0fff;"> Go back to landing page?</a>
+
+        </form>
+
+        
+    </div>
+</body>
+<script>
+    // Add event listeners to input elements
+const inputElements = document.querySelectorAll('input');
+
+inputElements.forEach(inputElement => {
+    inputElement.addEventListener('focus', () => {
+        inputElement.parentNode.querySelector('label').classList.add('active');
+    });
+
+    inputElement.addEventListener('blur', () => {
+        if (inputElement.value === '') {
+            inputElement.parentNode.querySelector('label').classList.remove('active');
+        }
+    });
+});
+
+
+// JavaScript function to toggle password visibility
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const passwordToggle = document.querySelector('.password-toggle i');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.classList.remove('fa-eye');
+        passwordToggle.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordToggle.classList.remove('fa-eye-slash');
+        passwordToggle.classList.add('fa-eye');
+    }
+}
+
+function validateForm() {
+    // Reset error messages
+    document.getElementById("email-error").textContent = "";
+    document.getElementById("password-error").textContent = "";
+
+    // Get values from input fields
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    // Email validation regular expression
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+    // Password complexity validation (for example, requiring at least 8 characters including numbers, uppercase, and lowercase)
+    var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+    // Perform email validation
+    if (!emailPattern.test(email)) {
+        document.getElementById("email-error").textContent = "Invalid email format";
+        return false;
+    }
+
+    // Perform password complexity validation
+    if (!passwordPattern.test(password)) {
+        document.getElementById("password-error").textContent = "Password must be at least 8 characters and include numbers, uppercase, and lowercase letters";
+        return false;
+    }
+
+    return true; // Form is valid
+}
+
+
+</script>
+<script type="module" src="./js/login.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+
+</html>

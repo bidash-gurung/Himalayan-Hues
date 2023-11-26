@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0f1d42;
+  }
+
+.image-slider{
+    background-image: url(./../image/1.jpg);
+    max-width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px);
+    animation: slide 20s infinite;
+}
+.text-overlay {
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-size: 40px;
+    /* border: 3px solid white; */
+}
+
+/* Style for the enlarged letters */
+.enlarged-letters {
+    font-size: 76px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+}
+.green-line {
+    position: absolute;
+    /* bottom: -10px; */
+    /* left: 15px; */
+    width: 20%;
+    height: 12px; /* Adjust the height of the line as needed */
+    background-color: #05FA00; /* Green color for the line */
+}
+
+.lavishly-yours-text {
+    font-family: 'Lavishly Yours', sans-serif; /* Use the Lavishly Yours font */
+    font-size: 80px; /* Adjust the font size as needed */
+    color: #ffffff; /* Set the text color */
+    /* Add any other styling you want for this text */
+    white-space: nowrap; /* Prevent line breaks */
+
+}
+ 
+@keyframes slide{
+    25%{
+        background: url(./../image/coverpic2.jpg);
+    }
+    50%{
+        background: url(./../image/coverpic3.jpg);
+    }
+    75%{
+        background: url(./../image/coverpic4.jpg);
+    }
+    100%{
+        background: url(./../image/1.jpg);
+    }
+}
+ 
+button{
+    position: absolute;
+    left : 85%;
+    bottom: 40px;
+    width: 10%;
+    height: 1cm;
+    background: #DF5C5C;
+    border-radius: 5px;
+}
+
+button a{
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+.aboutus h2{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+
+.aboutus .aboutusimg img{
+    max-width: 30%;
+    padding-left:15%;
+    border-radius: 8px;
+}
+
+.aboutus .desc{
+    /* border: 2px solid white; */
+    max-width: 40%;
+    position: absolute;
+    left: 50%;
+    bottom: -580px;
+}
+ 
+
+.aboutus .desc span{
+    font-size: 25px;
+    color: white;
+    line-height: 1.8;
+}
+
+
+.product {
+    text-align: center; /* Center-align the content if needed */
+    padding-top: 30px;
+  }
+  
+  .product h2{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+  }
+  .imgcontainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+   }
+
+ .imgcontainer .boyimg{
+    width: 90%;
+  }
+ .imgcontainer .boyimg .adv{
+    width: 80% !important;
+    padding-top: 5%;
+ }
+  
+  
+
+
+  .ourteams{
+    padding-top: 20px;
+  }
+
+  .ourteams h2{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+  }
+
+  .container {
+    padding-left: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    max-width: 90%;
+    margin: 10px;
+    padding: 15px;
+    /* border: 1px solid white; */
+  }
+  
+  .card img {
+    max-width: 90%;
+    height: 7cm;
+    border-radius: 5px;
+  }
+  
+  .info {
+    padding: 13px;
+    color: white;
+  }
+  
+  .info h3 {
+    font-size: 20px;
+  }
+  
+  .info p {
+    font-size: 16px;
+  }
+
+  .ourteams .whiteline {
+    position: absolute;
+    /* bottom: -10px; */
+    /* left: 15px; */
+    width: 100%;
+    height: 2px; /* Adjust the height of the line as needed */
+    background-color: #ffffff; /* Green color for the line */
+}
+
+  .banner {
+    color: #ffffff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .banner h1 {
+    font-size: 36px;
+  }
+  
+  .banner p {
+    font-size: 24px;
+  }
+  
+
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        bottom: -200px;
+        right: 30px;
+        font-size: 30px;
+    }
+   
+    .enlarged-letters{
+        font-size: 50px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 40px;
+    }
+
+    button{
+        /* border: 1pc solid white; */
+        bottom: 400px;
+        width: 4cm;
+        height: 0.7cm;
+        left:75%;
+
+    }
+    button a{
+        font-size: 12px;
+    }
+
+    .aboutus h2{
+        font-size: 25px;
+    }
+
+    .aboutus .desc span{
+        font-size: 17px;
+        position: relative;
+        bottom: 640px;
+        line-height: 1.4px;
+        /* top: ; */
+    }
+
+    .product h2{
+        font-size: 25px;
+    }
+    .product .boyimg .boy{
+        height: 7cm;
+    }
+
+    /* .imgcontainer{
+        grid-template-columns: auto auto;
+    } */
+
+    .imgcontainer .boyimg .adv{
+        width: 70% !important;
+        padding-top: 5%;
+        height: 4cm !important;
+    }
+
+    .ourteams h2{
+        font-size: 25px;
+    }
+
+    .ourteams .container{
+        grid-template-columns: auto auto;
+    }
+    .card img {
+        max-width: 90%;
+        height: 6cm;
+        border-radius: 5px;
+      }
+      
+    .banner h1 {
+        font-size: 22px;
+      }
+      
+      .banner p {
+        font-size: 15px;
+      }
+
+  }
+
+  @media (max-width: 767px) {
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        bottom: -200px;
+        right: 30px;
+        font-size: 20px;
+    }
+   
+    .enlarged-letters{
+        font-size: 40px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 30px;
+    }
+
+    .coverphoto button{
+        /* border: 1pc solid white; */
+        bottom: 400px;
+        width: 2cm ;
+        height: 0.8cm;
+        left:75%;
+
+    }
+    button a{
+        font-size: 11px;
+    }
+
+    .aboutus h2{
+        font-size: 20px;
+    }
+    .aboutus .aboutusimg img{
+        height: 6cm;
+    }
+    .aboutus .desc span{
+        font-size: 10px;
+        position: relative;
+        bottom: 660px;
+        line-height: 1px;
+        /* top: ; */
+    }
+
+    .product h2{
+        font-size: 20px;
+    }
+    .product .boyimg .boy{
+        height: 5cm;
+    }
+
+    /* .imgcontainer{
+        grid-template-columns: auto auto;
+    } */
+
+    .imgcontainer .boyimg .adv{
+        width: 70% !important;
+        padding-top: 5%;
+        height: 3cm !important;
+    }
+
+    .ourteams h2{
+        font-size: 25px;
+    }
+
+    .ourteams .container{
+        grid-template-columns:auto;
+    }
+    .card img {
+        width: 60%;
+        height: 6cm;
+        border-radius: 5px;
+      }
+      
+    .banner h1 {
+        font-size: 22px;
+      }
+      
+      .banner p {
+        font-size: 15px;
+      }
+
+  }

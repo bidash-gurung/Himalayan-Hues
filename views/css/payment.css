@@ -1,0 +1,499 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #0f1d42;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between; /* Align items on each end */
+    align-items: center; /* Vertical alignment */
+    /* border: 1px solid white; */
+}
+
+.navigation img {
+    height: 2cm;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex; /* Make the <ul> a flex container */
+}
+
+li {
+    padding: 20px;
+    /* border: 1px solid white; */
+}
+
+li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 7px;
+    color: white;
+}
+
+li a:hover {
+    background-color: #E96D6D;
+}
+
+.icon-option {
+    display: none; /* Initially hide the icon options */
+}
+
+
+.search-box {
+    display: flex; /* Make the search box and icon container a flex container */
+    align-items: center; /* Vertical alignment */
+    width: 25%;
+    position: relative;
+    left: 17%;
+}
+.search-box i {
+    font-size: 20px;
+    color: black; /* Set the icon color to black */
+    cursor: pointer;
+    position: relative;
+    right: 10%;
+ }
+.search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    width: 100%;
+    margin-right: 10px; /* Add margin to the right of the input field */
+}
+
+
+
+
+.image-slider{
+    background-image: url(/image/1.jpg);
+    width: 100%;
+    height: 90vh;
+    filter: blur(4px);
+    animation: slide 20s infinite;
+}
+.text-overlay {
+    color: white;
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-size: 50px;
+    /* border: 3px solid white; */
+}
+
+/* Style for the enlarged letters */
+.enlarged-letters {
+    font-size: 86px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+}
+.green-line {
+    position: absolute;
+    /* bottom: -10px; */
+    left: 8%;
+    width: 20%;
+    height: 12px; /* Adjust the height of the line as needed */
+    background-color: #05FA00; /* Green color for the line */
+}
+
+.lavishly-yours-text {
+    font-family: 'Lavishly Yours', sans-serif; /* Use the Lavishly Yours font */
+    font-size: 45px; /* Adjust the font size as needed */
+    color: #ffffff; /* Set the text color */
+    /* Add any other styling you want for this text */
+    white-space: nowrap; /* Prevent line breaks */
+    position: relative;
+    left: 7%;
+
+
+}
+ 
+@keyframes slide{
+    25%{
+        background: url(/image/coverpic2.jpg);
+    }
+    50%{
+        background: url(/image/coverpic3.jpg);
+    }
+    75%{
+        background: url(/image/coverpic4.jpg);
+    }
+    100%{
+        background: url(/image/1.jpg);
+    }
+}
+
+hr{
+    height:1.5spx ;
+    background-color: white;
+}
+
+
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 20%;
+}
+.footer .contact h3{
+    font-size: 25px;
+}
+
+.footer .contact span{
+    font-size: 20px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    left: 50%;
+  }
+
+  h1{
+    color: white;
+    text-align: center;
+  }
+
+  .acc-details{
+    color: white;
+    position: relative;
+    left: 12%;
+    border: 1px solid white ;
+    width: 70%;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .paymentform{
+    border: 1px solid white;
+    width: 30%;
+    position: relative;
+    left: 33%;
+    padding: 30px;
+    border-radius: 5px;
+    background-color: #2E4B8F;
+    /* text-align: center; */
+  }
+
+  
+
+  .paymentform label{
+    position: relative;
+    left: 20%;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 18px;
+    
+
+  }
+
+ .paymentform input{
+    height: 0.8cm;
+    width: 60%;
+    border-radius: 5px;
+    position: relative;
+    left: 20%;
+    
+ }
+
+ .payment-btn{
+    position: relative;
+    left: 20%;
+    height: 0.9cm;
+    width: 62%;
+    border-radius: 5px;
+    background-color: #E96D6D;
+ }
+
+ input:focus::placeholder,
+input:not(:placeholder-shown)::placeholder {
+    color: #007bff; /* Change the color to your desired highlight color */
+    transform: translateY(-150%);
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 35%;
+    top: 50px;
+}
+
+.form h3{
+    color: white;
+    font-size: 20px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.8cm;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form button{
+    width: 12%;
+    height: 0.98cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .navigation img{
+        height: 1.5cm;
+    }
+    li{
+        padding: 5px;
+    }
+    li a {
+        font-size: 15px;
+    }
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        /* border: 1px solid white; */
+        bottom: -200px;
+        right: 30px;
+        font-size: 30px;
+        width: 70%;
+    }
+   
+    .enlarged-letters{
+        
+        font-size: 45px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 30px;
+    }
+
+    .search-box{
+        left: 10%;
+        right: 15%;
+        /* border: 1px solid green; */
+    }
+    .search-box i{
+        right: 17%;
+    }
+
+    .paymentform{
+        border:1px solid #05FA00;
+        width: 60%;
+        left: 15%;
+    }
+
+
+
+    
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 8%;
+}
+.footer .contact h3{
+    font-size: 20px;
+}
+
+.footer .contact span{
+    font-size: 17px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    bottom: 8px;
+    left: 50%;
+  }
+
+
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 20%;
+    top: 25px;
+}
+
+.form h3{
+    color: white;
+    font-size: 18px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.8cm;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.form button{
+    width: 20%;
+    height: 0.97cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+
+}
+
+@media (max-width: 767px) {
+    .navigation img{
+        height: 1.2cm;
+    }
+    li{
+        padding: 5px;
+    }
+    li a {
+        font-size: 15px;
+    }
+
+    .text-option{
+        display: none;
+    }
+
+    .icon-option{
+        display: flex;
+    }
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        /* border: 1px solid white; */
+        bottom: -200px;
+        right: 30px;
+        font-size: 20px;
+        width: 70%;
+    }
+   
+    .enlarged-letters{
+        
+        font-size: 45px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 20px;
+    }
+
+    .search-box{
+        /* border: 1px solid green; */
+        left: 10%;
+        right: 15%;
+        width: 35%;
+        height: 1.3c,;
+        /* border: 1px solid green; */
+    }
+    .search-box i{
+        right: 17%;
+        font-size: 15px;
+    }
+
+    .paymentform{
+        border:1px solid #05FA00;
+        width: 70%;
+        left: 10%;
+    }
+
+
+
+    
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 8%;
+}
+.footer .contact h3{
+    font-size: 18px;
+}
+
+.footer .contact span{
+    font-size: 10px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    bottom: 8px;
+    left: 50%;
+  }
+
+
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 20%;
+    top: 25px;
+}
+
+.form h3{
+    color: white;
+    font-size: 15px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.7cm;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.form button{
+    width: 27%;
+    height: 0.8cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+.green-line {
+    position: absolute;
+    /* bottom: -10px; */
+    left: 8%;
+    width: 20%;
+    height: 8px; /* Adjust the height of the line as needed */
+    background-color: #05FA00; /* Green color for the line */
+}
+
+
+}

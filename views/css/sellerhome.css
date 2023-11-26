@@ -1,0 +1,636 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* width: 100%; */
+    background: #0f1d42;
+    /* border: 1px solid white; */
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between; /* Align items on each end */
+    align-items: center; /* Vertical alignment */
+    /* border: 1px solid white; */
+}
+
+.navigation img {
+    height: 2cm;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex; /* Make the <ul> a flex container */
+}
+
+li {
+    padding: 20px;
+    /* border: 1px solid white; */
+}
+
+li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 7px;
+    color: white;
+}
+
+li a:hover {
+    background-color: #E96D6D;
+}
+
+.icon-option {
+    display: none; /* Initially hide the icon options */
+}
+
+
+.search-box {
+    display: flex; /* Make the search box and icon container a flex container */
+    align-items: center; /* Vertical alignment */
+    width: 25%;
+    position: relative;
+    left: 17%;
+}
+.search-box i {
+    font-size: 20px;
+    color: black; /* Set the icon color to black */
+    cursor: pointer;
+    position: relative;
+    right: 10%;
+ }
+.search-input {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    width: 100%;
+    margin-right: 10px; /* Add margin to the right of the input field */
+}
+
+
+
+
+
+.image-slider{
+    background-image: url(/image/1.jpg);
+    width: 100%;
+    height: 90vh;
+    filter: blur(4px);
+    animation: slide 20s infinite;
+}
+.text-overlay {
+    color: white;
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    font-size: 50px;
+    /* border: 3px solid white; */
+}
+
+/* Style for the enlarged letters */
+.enlarged-letters {
+    font-size: 86px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+}
+.green-line {
+    position: absolute;
+    /* bottom: -10px; */
+    left: 8%;
+    width: 20%;
+    height: 12px; /* Adjust the height of the line as needed */
+    background-color: #05FA00; /* Green color for the line */
+}
+
+.lavishly-yours-text {
+    font-family: 'Lavishly Yours', sans-serif; /* Use the Lavishly Yours font */
+    font-size: 45px; /* Adjust the font size as needed */
+    color: #ffffff; /* Set the text color */
+    /* Add any other styling you want for this text */
+    white-space: nowrap; /* Prevent line breaks */
+    position: relative;
+    left: 7%;
+
+
+}
+ 
+@keyframes slide{
+    25%{
+        background: url(/image/coverpic2.jpg);
+    }
+    50%{
+        background: url(/image/coverpic3.jpg);
+    }
+    75%{
+        background: url(/image/coverpic4.jpg);
+    }
+    100%{
+        background: url(/image/1.jpg);
+    }
+}
+
+h1{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+
+}
+
+.products {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 35px;
+    /* margin: 20px; */
+    padding: 20px;
+    width: 80%;
+    position: relative;
+    left: 12%;
+    /* background: #fff; Background color for the product container */
+    border-radius: 10px;
+    /* border: 1px solid white; */
+}
+  
+.product {
+    background: #0f1d42;
+    padding: 20px;
+    border-radius: 10px;
+    width: 7cm;
+    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+    color: white; /* Set the text color to white */
+    border: 1px solid white;
+}
+
+.product .proimg{
+    width: 100%;
+    height: 240px;
+    border: 1px solid white;
+    background-color:#D9D9D9;
+    border-radius: 5px;
+}
+  
+.product img {
+    position: relative;
+    top: 20px;
+    left:10px;
+    width: 90%; /* Set a consistent width for the images */
+    height: 200px; /* Maintain the aspect ratio */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+ 
+  
+.product h3 {
+    /* border: 1px solid white; */
+    font-size: 20px;
+    width: 45%;
+    /* margin: 10px 0; */
+}
+  
+.product p {
+    font-size: 20px;
+    width: 65%;
+
+}
+  
+.product a {
+    width: 80%;
+    text-decoration: none;
+    color: white; 
+    /* border: 1px solid white; */
+     
+
+}
+  
+.edit-button,
+.delete-button {
+    display: block;
+    width: 25%;
+    height: 30px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #8F6603; /* Yellowish color */
+    color: #fff;
+    cursor: pointer;
+}
+  
+.edit-button {
+    float: left;
+    /* margin-top: 2rem; */
+}
+  
+.delete-button {
+    float: right;
+}
+
+
+/* pop up page */
+
+.moreinfo{
+    position: fixed;
+    top: 0; left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .moreinfo .preview{
+    display: none;
+    padding: 2rem;
+    /* text-align: center; */
+    background:  #0f1d42;
+    position: relative;
+    bottom: 30px;
+    margin: 5rem;
+    width: 30rem;
+    border-radius: 10px;
+    border: 1px solid white;
+
+  }
+  
+  .moreinfo .preview.active{
+    display: inline-block;
+  }
+  
+  .moreinfo img{
+    position: relative;
+    left: 25%;
+    width: 6cm;
+    height: 8cm;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 10px;
+  }
+  /* .moreinfo .preview h2{
+    font-family:serif ;
+    text-align: center;
+    font-size: 30px;
+    color: rgba(0, 0, 0, .8);
+  } */
+  
+  .moreinfo .preview p{
+    margin-bottom: 10px;
+    position: relative;
+    top: 15px;
+    font-weight: 1000px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .moreinfo .preview p span{
+    font-size: 15px;
+    font-weight: 400px;
+    color: #fff;
+  }
+  
+  
+  
+  .moreinfo .preview .fa-times{
+    position: absolute;
+    top: 1rem; right:1.5rem;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.5rem;
+  }
+  .moreinfo .preview .fa-times:hover{
+    transform: rotate(90deg);
+    transition: .5s ease;
+  }
+
+hr{
+    height:1.5spx ;
+    background-color: white;
+}
+
+
+
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 20%;
+}
+.footer .contact h3{
+    font-size: 25px;
+}
+
+.footer .contact span{
+    font-size: 20px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    left: 50%;
+  }
+
+
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 35%;
+    top: 50px;
+}
+
+.form h3{
+    color: white;
+    font-size: 20px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.8cm;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form button{
+    width: 12%;
+    height: 0.98cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .navigation img{
+        height: 1.5cm;
+    }
+    li{
+        padding: 5px;
+    }
+    li a {
+        font-size: 15px;
+    }
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        /* border: 1px solid white; */
+        bottom: -200px;
+        right: 30px;
+        font-size: 30px;
+        width: 70%;
+    }
+   
+    .enlarged-letters{
+        
+        font-size: 45px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 30px;
+    }
+
+    .search-box{
+        left: 10%;
+        right: 15%;
+        /* border: 1px solid green; */
+    }
+    .search-box i{
+        right: 17%;
+    }
+
+
+
+    .products {
+        display: grid;
+        grid-template-columns: auto auto;
+        /* border: 1px solid white; */
+        left: 5%;
+    }
+    .product{
+        width: 7cm;
+
+    }
+
+    .products .product{
+        height: 420px;
+        width: 80%;
+    }
+
+
+    
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 8%;
+}
+.footer .contact h3{
+    font-size: 20px;
+}
+
+.footer .contact span{
+    font-size: 17px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    bottom: 8px;
+    left: 50%;
+  }
+
+
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 20%;
+    top: 25px;
+}
+
+.form h3{
+    color: white;
+    font-size: 18px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.8cm;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.form button{
+    width: 20%;
+    height: 0.97cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+
+}
+
+@media (max-width: 767px) {
+    .navigation img{
+        height: 1.2cm;
+    }
+    li{
+        padding: 5px;
+    }
+    li a {
+        font-size: 15px;
+    }
+
+    .text-option{
+        display: none;
+    }
+
+    .icon-option{
+        display: flex;
+    }
+    .image-slider{
+        height: 50vh;
+    }
+    .text-overlay{
+        /* border: 1px solid white; */
+        bottom: -200px;
+        right: 30px;
+        font-size: 20px;
+        width: 70%;
+    }
+   
+    .enlarged-letters{
+        
+        font-size: 45px;
+    }
+
+    .lavishly-yours-text{
+        font-size: 20px;
+    }
+
+    .search-box{
+        /* border: 1px solid green; */
+        left: 10%;
+        right: 15%;
+        width: 35%;
+        height: 1.3c,;
+        /* border: 1px solid green; */
+    }
+    .search-box i{
+        right: 17%;
+        font-size: 15px;
+    }
+
+    .product{
+        width: 7cm;
+
+    }
+    
+    .products {
+        display: grid;
+        grid-template-columns: auto ;
+        /* border: 1px solid white; */
+        left: 10%;
+    }
+
+    .products .product{
+        height: 420px;
+        width: 65%;
+    }
+
+
+
+    
+footer .footer{
+    display: flex;
+    /* border: 1px solid white; */
+    height: 5cm;
+}
+
+.footer .contact{
+    color: white;
+    /* border: 1px solid white; */
+    position: relative;
+    left: 8%;
+}
+.footer .contact h3{
+    font-size: 18px;
+}
+
+.footer .contact span{
+    font-size: 10px;
+}
+
+.vl {
+    border-left: 3px solid white;;
+    position: relative;
+    bottom: 8px;
+    left: 50%;
+  }
+
+
+/* feedback form */
+
+.footer .form{
+    
+    /* border:1px solid white ; */
+    height:1.5cm;
+    width: 40%;
+    position: relative;
+    left: 20%;
+    top: 25px;
+}
+
+.form h3{
+    color: white;
+    font-size: 15px;
+}
+
+.form input{
+    width: 50%;
+    height: 0.7cm;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.form button{
+    width: 27%;
+    height: 0.8cm;
+    border-radius: 5px;
+    background-color: #E96D6D;
+}
+
+.green-line {
+    position: absolute;
+    /* bottom: -10px; */
+    left: 8%;
+    width: 20%;
+    height: 8px; /* Adjust the height of the line as needed */
+    background-color: #05FA00; /* Green color for the line */
+}
+
+
+}
